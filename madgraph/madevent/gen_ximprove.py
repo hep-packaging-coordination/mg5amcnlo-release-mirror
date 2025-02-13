@@ -304,6 +304,7 @@ class gensym(object):
                     logger.debug('(%s) nb_hel: %s zero amp: %s bad_amps_hel: %s/%s', split_file[-1], len(good_hels),len(bad_amps),len(bad_amps_perhel), len(good_hels)*nb_amp )
                 if len(good_hels) == 1:
                     files.cp(matrix_file, matrix_file.replace('orig','optim'))
+                    files.cp(matrix_file.replace('.f','.o'), matrix_file.replace('orig','optim').replace('.f','.o'))
                     continue # avoid optimization if onlye one helicity
                 recycler = hel_recycle.HelicityRecycler(good_hels, bad_amps, bad_amps_perhel)
                 # In case of bugs you can play around with these:
